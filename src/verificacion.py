@@ -1,9 +1,6 @@
 def verificar_disponibilidad(df_disponibilidad):
 
-    dias = [
-        "lunes", "martes", "miercoles", "jueves",
-        "viernes", "sabado", "domingo"
-    ]
+    dias = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"]
 
     for dia in dias:
         if df_disponibilidad[dia][0] < 0:
@@ -24,11 +21,7 @@ def verificar_fechas_materias(df_materias):
     for indice, fila in df_materias.iterrows():
 
         if fila["fecha_examen"] <= fila["fecha_inicio"]:
-            print(
-                "Error: la fecha del examen de",
-                fila["materia"],
-                "debe ser posterior a la fecha de inicio."
-            )
+            print("Error: la fecha del examen de",fila["materia"],"debe ser posterior a la fecha de inicio.")
             return False
 
     return True
