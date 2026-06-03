@@ -1,2 +1,2 @@
-# Trabajo-Aplicado---Sistema-de-planificaci-n
+# Trabajo-Aplicado---Sistema-de-planificacion
 Planificacion de estudio y prevencion de procrastinacion y sobreexigencia.
