@@ -22,8 +22,7 @@ def obtener_nombre_dia(fecha):
         "jueves",
         "viernes",
         "sabado",
-        "domingo"
-    ]
+        "domingo"]
 
     return dias[fecha.weekday()]
 
@@ -50,17 +49,15 @@ def calcular_prioridades(df_materias, df_temas):
     for indice, fila in df.iterrows():
         dias_restantes = calcular_dias_restantes(
             fila["fecha_inicio"],
-            fila["fecha_examen"]
-        )
+            fila["fecha_examen"])
 
         urgencia = calcular_urgencia(dias_restantes)
 
         prioridad = (
             2 * fila["dificultad"]
             + (6 - fila["conocimiento"])
-            + urgencia
-        )
-
+            + urgencia)
+        
         prioridades.append(prioridad)
 
     df["prioridad"] = prioridades
@@ -74,8 +71,7 @@ def calcular_horas_necesarias(df):
     df["horas_necesarias"] = (
         1
         + df["dificultad"] * 0.3
-        + (6 - df["conocimiento"]) * 0.3
-    )
+        + (6 - df["conocimiento"]) * 0.3)
 
     df["horas_necesarias"] = df["horas_necesarias"].round(1) #redondeá a 1 decimal. ej 3,56 --> 3,6
 
@@ -90,8 +86,7 @@ def crear_estructura_plan(df_disponibilidad, df_materias):
     for indice, materia in df_materias.iterrows():
         fechas = crear_rango_fechas(
             materia["fecha_inicio"],
-            materia["fecha_examen"]
-        )
+            materia["fecha_examen"])
 
         for fecha in fechas:
             if fecha not in plan:
@@ -112,14 +107,12 @@ def asignar_bloque_repartido(
     materia,
     tema,
     actividad,
-    horas_bloque
-):
+    horas_bloque):
     horas_pendientes = horas_bloque
 
     fechas_ordenadas = sorted(
         fechas_posibles,
-        key=lambda fecha: carga_diaria[fecha]
-    )
+        key=lambda fecha: carga_diaria[fecha])
 
     for fecha in fechas_ordenadas:
         espacio_disponible = capacidad_diaria[fecha] - carga_diaria[fecha]
@@ -133,8 +126,7 @@ def asignar_bloque_repartido(
                 "materia": materia,
                 "tema": tema,
                 "actividad": actividad,
-                "horas": round(horas_asignadas, 1)
-            })
+                "horas": round(horas_asignadas, 1)})
 
             carga_diaria[fecha] += horas_asignadas
             horas_pendientes -= horas_asignadas
