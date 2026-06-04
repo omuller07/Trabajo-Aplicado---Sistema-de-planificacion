@@ -1,12 +1,15 @@
-from recoleccion_info import recolectar_informacion
+from src.recoleccion_info import recolectar_informacion
 
-from verificacion import (
+from src.verificacion import (
     verificar_disponibilidad,
     verificar_fechas_materias,
     verificar_nombres_materias,
-    verificar_nombres_temas)
+    verificar_nombres_temas
+)
 
-from planificador import generar_plan
+from src.planificador import generar_plan
+
+from src.graficos import crear_calendario_visual
 
 
 def mostrar_resumen_prioridades(temas_ordenados):
@@ -19,7 +22,8 @@ def mostrar_resumen_prioridades(temas_ordenados):
         "dificultad",
         "conocimiento",
         "prioridad",
-        "horas_necesarias"]
+        "horas_necesarias"
+    ]
 
     print(temas_ordenados[columnas])
 
@@ -38,7 +42,8 @@ def mostrar_carga_diaria(carga_diaria, capacidad_diaria):
             horas_usadas,
             "hs usadas de",
             horas_disponibles,
-            "hs disponibles")
+            "hs disponibles"
+        )
 
         if horas_usadas > 4:
             print("  Alerta: posible sobrecarga mental.")
@@ -59,7 +64,8 @@ def mostrar_temas_no_asignados(temas_no_asignados):
                 item["actividad"],
                 "| faltaron",
                 item["horas_faltantes"],
-                "hs")
+                "hs"
+            )
 
         print("\nRecomendación: aumentá la disponibilidad o empezá antes a estudiar.")
 
@@ -71,7 +77,8 @@ def main():
         verificar_disponibilidad(df_disponibilidad)
         and verificar_nombres_materias(df_materias)
         and verificar_fechas_materias(df_materias)
-        and verificar_nombres_temas(df_temas))
+        and verificar_nombres_temas(df_temas)
+    )
 
     if not datos_validos:
         return
@@ -79,13 +86,16 @@ def main():
     plan, temas_ordenados, carga_diaria, capacidad_diaria, temas_no_asignados = generar_plan(
         df_disponibilidad,
         df_materias,
-        df_temas)
+        df_temas
+    )
 
     mostrar_resumen_prioridades(temas_ordenados)
 
     mostrar_carga_diaria(carga_diaria, capacidad_diaria)
 
     mostrar_temas_no_asignados(temas_no_asignados)
+
+    crear_calendario_visual(plan, df_materias)
 
 
 main()
