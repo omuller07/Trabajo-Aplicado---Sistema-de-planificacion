@@ -99,73 +99,112 @@ def crear_estructura_plan(df_disponibilidad, df_materias):
                 carga_diaria[fecha] = 0
 
                 nombre_dia = obtener_nombre_dia(fecha)
-                capacidad_diaria[fecha] = df_disponibilidad[nombre_dia][0]
+                capacidad_diaria[fecha] = df_disponibilidad.loc[0, nombre_dia]
 
     return plan, carga_diaria, capacidad_diaria
 
 
-def buscar_fecha_disponible(fechas_posibles, carga_diaria, capacidad_diaria, horas_bloque):
-    fechas_ordenadas = sorted(fechas_posibles, key=lambda fecha: carga_diaria[fecha])
+def asignar_bloque_repartido(
+    plan,
+    fechas_posibles,
+    carga_diaria,
+    capacidad_diaria,
+    materia,
+    tema,
+    actividad,
+    horas_bloque
+):
+    horas_pendientes = horas_bloque
+
+    fechas_ordenadas = sorted(
+        fechas_posibles,
+        key=lambda fecha: carga_diaria[fecha]
+    )
 
     for fecha in fechas_ordenadas:
-        if carga_diaria[fecha] + horas_bloque <= capacidad_diaria[fecha]:
-            return fecha
+        espacio_disponible = capacidad_diaria[fecha] - carga_diaria[fecha]
+        if espacio_disponible > 0:
+            if horas_pendientes <= espacio_disponible:
+                horas_asignadas = horas_pendientes
+            else:
+                horas_asignadas = espacio_disponible
 
-    return None
+            plan[fecha].append({
+                "materia": materia,
+                "tema": tema,
+                "actividad": actividad,
+                "horas": round(horas_asignadas, 1)
+            })
+
+            carga_diaria[fecha] += horas_asignadas
+            horas_pendientes -= horas_asignadas
+
+        if horas_pendientes <= 0:
+            return 0
+
+    return horas_pendientes
 
 
 def generar_plan(df_disponibilidad, df_materias, df_temas):
-    df = calcular_prioridades(df_materias, df_temas)
 
-    df = calcular_horas_necesarias(df)
+    temas_priorizados = calcular_prioridades(
+        df_materias,
+        df_temas)
 
-    df = df.sort_values("prioridad", ascending=False)
+    temas_con_horas = calcular_horas_necesarias(
+        temas_priorizados)
+
+    temas_ordenados = temas_con_horas.sort_values(
+        "prioridad",
+        ascending=False)
 
     plan, carga_diaria, capacidad_diaria = crear_estructura_plan(
         df_disponibilidad,
-        df_materias
-    )
+        df_materias)
 
     temas_no_asignados = []
 
-    for indice, fila in df.iterrows():
+    for indice, tema in temas_ordenados.iterrows():
+
         fechas_posibles = crear_rango_fechas(
-            fila["fecha_inicio"],
-            fila["fecha_examen"]
+            tema["fecha_inicio"],
+            tema["fecha_examen"]
         )
 
-        horas_necesarias = fila["horas_necesarias"]
+        horas_necesarias = tema["horas_necesarias"]
 
-        cantidad_bloques = math.ceil(horas_necesarias / 1.5)
+        cantidad_bloques = math.ceil(horas_necesarias / 1.5)#redondea para arriba. ej 2,66 --> 3.
 
-        horas_por_bloque = round(horas_necesarias / cantidad_bloques, 1)
+        horas_por_bloque = round(horas_necesarias / cantidad_bloques,1 )#the lo redondea un decimal. 3,66 -->3,6
 
         for bloque in range(cantidad_bloques):
+
             if bloque == 0:
                 actividad = "Estudio"
+
             elif bloque == cantidad_bloques - 1:
                 actividad = "Repaso"
+
             else:
                 actividad = "Práctica"
 
-            fecha_elegida = buscar_fecha_disponible(
+            horas_sin_asignar = asignar_bloque_repartido(
+                plan,
                 fechas_posibles,
                 carga_diaria,
                 capacidad_diaria,
+                tema["materia"],
+                tema["tema"],
+                actividad,
                 horas_por_bloque
             )
 
-            if fecha_elegida is None:
-                temas_no_asignados.append(fila["tema"])
-
-            else:
-                plan[fecha_elegida].append({
-                    "materia": fila["materia"],
-                    "tema": fila["tema"],
+            if horas_sin_asignar > 0:
+                temas_no_asignados.append({
+                    "materia": tema["materia"],
+                    "tema": tema["tema"],
                     "actividad": actividad,
-                    "horas": horas_por_bloque
+                    "horas_faltantes": round(horas_sin_asignar, 1)
                 })
 
-                carga_diaria[fecha_elegida] += horas_por_bloque
-
-    return plan, df, carga_diaria, capacidad_diaria, temas_no_asignados
+    return (plan, temas_ordenados, carga_diaria, capacidad_diaria, temas_no_asignados)
