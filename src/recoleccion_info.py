@@ -87,7 +87,7 @@ def recolectar_materias_y_temas():
 
             nombre_tema = input("Nombre del tema: ")
 
-            dificultad = pedir_entero("Dificultad del tema (1 a 5): ", 1, 5)
+            dificultad = pedir_entero("Dificultad del tema (1 a 10): ", 1, 10)
 
             conocimiento = pedir_entero("Conocimiento previo (1 a 5): ", 1, 5)
 
