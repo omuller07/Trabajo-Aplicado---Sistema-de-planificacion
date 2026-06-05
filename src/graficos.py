@@ -128,7 +128,7 @@ def crear_calendario_visual(plan, df_materias):
         calendario.set_fontsize(6)
         # No pone font size default, pone 6
 
-        calendario.scale(1.3, 5.5)
+        calendario.scale(1.3, 7)
         # Cambia el tamaño de las celdas de la tabla: ensancha las columnas y hace filas más altas
 
         for col in range(7):
@@ -200,9 +200,10 @@ def crear_calendario_visual(plan, df_materias):
 
         # Recorre todas las celdas de la tabla y les cambia el color según el tipo de actividad
         # o según si el día ya pasó
-
+        meses = ["", "Enero", "Febrero", "Marzo", "Abril","Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+        nombre_mes = meses[mes]
         plt.title(
-            f"Planificador de estudio - {mes}/{anio}",
+            f"Planificador de estudio - {nombre_mes}/{anio}",
             fontsize=20,
             fontweight="bold",
             pad=30
