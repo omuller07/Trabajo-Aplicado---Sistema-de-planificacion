@@ -40,17 +40,21 @@ def mostrar_menu():
 
 
 def generar_nuevo_plan():
-    df_disponibilidad, df_materias, df_temas = recolectar_informacion()
 
-    datos_validos = (
-        verificar_disponibilidad(df_disponibilidad)
-        and verificar_nombres_materias(df_materias)
-        and verificar_fechas_materias(df_materias)
-        and verificar_nombres_temas(df_temas)
-    )
+    while True:
+        df_disponibilidad, df_materias, df_temas = recolectar_informacion()
 
-    if not datos_validos:
-        return
+        datos_validos = (
+            verificar_disponibilidad(df_disponibilidad)
+            and verificar_nombres_materias(df_materias)
+            and verificar_fechas_materias(df_materias)
+            and verificar_nombres_temas(df_temas)
+        )
+
+        if datos_validos:
+            break
+
+        print("\nVolvé a ingresar los datos.\n")
 
     plan, temas_ordenados, carga_diaria, capacidad_diaria, temas_no_asignados = generar_plan(
         df_disponibilidad,
