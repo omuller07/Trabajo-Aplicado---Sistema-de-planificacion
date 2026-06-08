@@ -3,6 +3,25 @@ from datetime import datetime
 
 
 def pedir_fecha(mensaje):
+    """
+    Solicita al usuario que ingrese una fecha por consola y la valida.
+
+    Repite la solicitud hasta que el usuario ingrese una fecha con el
+    formato correcto (dd/mm/aaaa). Si el formato es inválido, muestra
+    un mensaje de error y vuelve a pedir la fecha.
+
+    Parameters
+    ----------
+    mensaje : str
+        Texto qeu se muestra cuando hay que pedir fecha, 
+        ya sea de inicio de estudio o de examen.
+
+   Returns
+    -------
+    datetime.date
+        La fecha ingresada por el usuario como objeto ``datetime.date``.
+
+    """
     while True:
         texto = input(mensaje + " (dd/mm/aaaa): ")
 
@@ -14,6 +33,19 @@ def pedir_fecha(mensaje):
 
 
 def pedir_horas_dia(nombre_dia):
+    
+
+    """
+    Pide la capacidad horaria del usuario por dia, y la valida.
+    Parameters
+    ----------
+    nombre_dia : str
+        Texto que se muestra el nombre del dia del cual 
+        se esta pidiendo la capcidad horaria
+
+
+    """
+    
     while True:
         try:
             horas = float(input(f"¿Cuántas horas podés estudiar los {nombre_dia}?: "))
@@ -28,6 +60,24 @@ def pedir_horas_dia(nombre_dia):
 
 
 def pedir_entero(mensaje, minimo, maximo):
+    '''
+    Pide un numero y lo valida teniendo en cuenta un minimo y un maximo
+
+    Parameters
+    ----------
+    mensaje : str
+        TExto que se meustra al pedir el input.
+    minimo : int
+        Minimo que debe superar el numero ingresado.
+    maximo : int
+        Maximo para el numero ingresado.
+
+    Returns
+    -------
+    numero : int
+        Numero ingresado, ya validado.
+
+    '''
     while True:
         try:
             numero = int(input(mensaje))
@@ -42,6 +92,20 @@ def pedir_entero(mensaje, minimo, maximo):
 
 
 def recolectar_disponibilidad():
+    '''
+    Recorre los dias de la semana pidiendo la cantidad de horas 
+    disponibles para estudiar y construye un DataFrame con esa informacion
+
+    Muestra por consola un encabezado y solicita, para cada día,
+    las horas disponibles mediante ``pedir_horas_dia()``. Si un día
+    no hay disponibilidad, el usuario debe ingresar 0.
+    Returns
+    -------
+    df_disponibilidad : pandas.DataFrame
+        DataFrame de una fila y siete columnas (lunes a domingo) con
+        la cantidad de horas disponibles para estudiar cada día..
+
+    '''
     print("\nDISPONIBILIDAD SEMANAL")
     print("Si un día no podés estudiar, escribí 0.\n")
 
@@ -59,6 +123,24 @@ def recolectar_disponibilidad():
 
 
 def recolectar_materias_y_temas():
+    """
+    Pide al usuario ingresar la cantidad de materias, 
+    los nombres la fecha de inicio de estudio, de examen y 
+    cantidad de temas de ellas. Pide al usuario que ingrese 
+    la cantidad de conocimiento previo que posee por tema y la dificultad de cada uno
+    Construye doss dataframes con la informacion recolectada. 
+    
+
+    Returns
+    -------
+    df_materias : pandas.DataFrame
+        Dataframe con la infroamcion de cada materia ingresada: 
+        id de materia, nombre, fecha de inicio de estudio, fecha de examen.
+    df_temas : pandas.DataFrame
+        Dataframe con la infroamcion de cada tema ingresada: 
+         id de materia, nombre del tema. dificultad, conocimiento previo
+
+    """
     materias = []
     temas = []
 
@@ -103,6 +185,22 @@ def recolectar_materias_y_temas():
 
 
 def recolectar_informacion():
+    """
+    Coordina la recolección de toda la información necesaria para
+    armar el plan de estudio. Muestra el encabezado del programa 
+   
+    Returns
+    -------
+    df_disponibilidad : pandas.DataFrame
+        DataFrame de una fila y siete columnas con las horas
+        disponibles para estudiar cada día de la semana.
+    df_materias : pandas.DataFrame
+        DataFrame con las materias ingresadas por el usuario.
+    df_temas : pandas.DataFrame
+        DataFrame con los temas asociados a cada materia.
+    """
+    
+    
     print("PLANIFICADOR DE ESTUDIO")
     print("-----------------------")
 
