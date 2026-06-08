@@ -78,7 +78,7 @@ def generar_nuevo_plan():
 
 
 def registrar_progreso():
-    df_disponibilidad, df_materias, df_temas = cargar_datos_iniciales()
+    df_disponibilidad, df_materias, df_temas = cargar_datos_iniciales() #lo que hace es leer los archivos CSV que se guardaron cuando generaste el plan
     df_plan = cargar_plan()
     df_progreso = cargar_progreso()
 
