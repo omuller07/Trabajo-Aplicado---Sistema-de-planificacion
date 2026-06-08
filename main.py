@@ -29,6 +29,19 @@ from src.seguimiento import (
 
 
 def mostrar_menu():
+    """
+    Muestra un menu de opcionespar el usuario. 
+    1. generar un plan
+    2. registrar porgreso de estudio 
+    3.Ver calendario 
+    4. Salir
+
+    Returns
+    -------
+    opcion : str
+        Numero de opcion seleccionada por el usuario.
+
+    """
     print("\nMENÚ PRINCIPAL")
     print("1. Generar nuevo plan")
     print("2. Registrar progreso del día")
@@ -40,9 +53,21 @@ def mostrar_menu():
 
 
 def generar_nuevo_plan():
+    """
+    Solicita los datos al usuario en bucle hasta que pasen todas las
+    validaciones (disponibilidad, nombres y fechas de materias y temas).
+    Una vez validados, genera el plan, lo guarda, muestra un resumen de
+    prioridades por consola, advierte sobre los temas que no pudieron
+    ser asignados y genera el calendario visual.  
 
+    Returns
+    -------
+    None.
+
+    """
     while True:
         df_disponibilidad, df_materias, df_temas = recolectar_informacion()
+        #desempaqueta los tres df que devuelve recolectar_informacion()
 
         datos_validos = (
             verificar_disponibilidad(df_disponibilidad)
@@ -50,6 +75,7 @@ def generar_nuevo_plan():
             and verificar_fechas_materias(df_materias)
             and verificar_nombres_temas(df_temas)
         )
+    #pasa por todas las validaciones, si alguna falla, pide todo devuelta. 
 
         if datos_validos:
             break
@@ -59,10 +85,11 @@ def generar_nuevo_plan():
     plan, temas_ordenados, carga_diaria, capacidad_diaria, temas_no_asignados = generar_plan(
         df_disponibilidad,
         df_materias,
-        df_temas
-    )
+        df_temas)
+    #llama a la funcion generar plan y asigna nombres a las cosas que devuleve. 
 
     guardar_datos_iniciales(df_disponibilidad, df_materias, df_temas)
+    #funcion que guarda los datos 
     guardar_plan(plan)
 
     print("\nPlan generado y guardado correctamente.")
@@ -75,10 +102,24 @@ def generar_nuevo_plan():
             print(item)
 
     crear_calendario_visual(plan, df_materias)
+    #crea el calendario visual usando la funcion. 
 
 
 def registrar_progreso():
+
+    """
+    EL usuario puede registrar su progreso. Si no hay un plan ya hecho, el programa pide que lo haga. 
+    A partir de la nueva informacion edita la planificacion. 
+
+    Returns
+    -------
+    None.
+
+    """
     df_disponibilidad, df_materias, df_temas = cargar_datos_iniciales() #lo que hace es leer los archivos CSV que se guardaron cuando generaste el plan
+
+    df_disponibilidad, df_materias, df_temas = cargar_datos_iniciales()
+
     df_plan = cargar_plan()
     df_progreso = cargar_progreso()
 
@@ -105,6 +146,14 @@ def registrar_progreso():
 
 
 def ver_calendario():
+    """
+    Muestra el calendario, si no hay uno, pide que lo arme. 
+
+    Returns
+    -------
+    None.
+
+    """
     df_disponibilidad, df_materias, df_temas = cargar_datos_iniciales()
     df_plan = cargar_plan()
 
