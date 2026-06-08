@@ -112,25 +112,20 @@ def ver_calendario():
     crear_calendario_visual(plan, df_materias)
 
 
-def main():
-    while True:
-        opcion = mostrar_menu()
-
-        if opcion == "1":
-            generar_nuevo_plan()
-
-        elif opcion == "2":
-            registrar_progreso()
-
-        elif opcion == "3":
-            ver_calendario()
-
-        elif opcion == "4":
-            print("Programa finalizado.")
-            break
-
-        else:
-            print("Opción inválida.")
 
 
-main()
+while True:
+    opcion = mostrar_menu()
+
+    if opcion == "1":
+        generar_nuevo_plan()
+
+    elif opcion == "2":
+        registrar_progreso()
+
+    elif opcion == "3":
+        ver_calendario()
+
+    elif opcion == "4":
+        print("Programa finalizado.")
+        break
