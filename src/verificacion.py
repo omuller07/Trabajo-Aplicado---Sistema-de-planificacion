@@ -10,7 +10,8 @@ def verificar_disponibilidad(df_disponibilidad):
     Returns
     -------
     bool
-        False si ese dia no tiene horas disponibles.
+        False si hay horas negativas o no hay horas disponibles
+        para estudiar.
         True si hay horas disponible.
 
     '''
