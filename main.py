@@ -107,7 +107,8 @@ def generar_nuevo_plan():
 
 def registrar_progreso():
     """
-    EL usuario puede registrar su progreso. SI no hay un plan ya hecho, el progreso 
+    EL usuario puede registrar su progreso. Si no hay un plan ya hecho, el programa pide que lo haga. 
+    A partir de la nueva informacion edita la planificacion. 
 
     Returns
     -------
@@ -141,6 +142,14 @@ def registrar_progreso():
 
 
 def ver_calendario():
+    """
+    Muestra el calendario, si no hay uno, pide que lo arme. 
+
+    Returns
+    -------
+    None.
+
+    """
     df_disponibilidad, df_materias, df_temas = cargar_datos_iniciales()
     df_plan = cargar_plan()
 
