@@ -31,12 +31,12 @@ def convertir_plan_a_texto(plan, año, mes):
             textos = []
     
             for actividad in actividades:
-                texto = (actividad["actividad"]+ "\n" + actividad["materia"] + "\n"
-                         + actividad["tema"] + "\n" + str(actividad["horas"]) + " hs")
+                texto = (actividad["actividad"] + " | " + actividad["materia"] + " | "
+                         + actividad["tema"] + " | " + str(actividad["horas"]) + " hs")
     
                 textos.append(texto)
     
-            plan_por_dia[fecha.day] = "\n\n".join(textos)
+            plan_por_dia[fecha.day] = "\n".join(textos)
                 # fecha.day --> obtiene el número del día del mes
                 # "\n\n".join(textos) --> une todas las actividades del día separándolas mediante dos saltos de línea.
     
