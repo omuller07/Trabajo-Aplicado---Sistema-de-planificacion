@@ -1,13 +1,25 @@
 fecha,materia,tema,actividad,horas
-2026-06-10,algebra,TL,Estudio,1.4
-2026-06-10,neuro,j,Práctica,1.2
-2026-06-10,neuro,r,Repaso,1.1
-2026-06-11,algebra,TL,Práctica,1.4
-2026-06-11,neuro,j,Repaso,1.2
-2026-06-12,algebra,TL,Repaso,1.4
-2026-06-12,neuro,r,Estudio,0.6
-2026-06-13,algebra,simplex,Estudio,1.3
-2026-06-13,neuro,j,Estudio,1.2
-2026-06-13,neuro,r,Estudio,0.5
-2026-06-15,algebra,simplex,Práctica,1.3
-2026-06-16,algebra,simplex,Repaso,1.3
+2026-06-10,Filosofia,Filosofia Practica,Estudio,1.2
+2026-06-11,Filosofia,Filosofia Practica,Práctica,1.2
+2026-06-12,Filosofia,Filosofia Practica,Práctica,1.2
+2026-06-14,Filosofia,Filosofia Practica,Repaso,1.2
+2026-06-15,Neuro,Somatosensorial,Estudio,1.4
+2026-06-16,Neuro,Somatosensorial,Práctica,1.4
+2026-06-17,Neuro,Somatosensorial,Repaso,1.4
+2026-06-18,Neuro,Audicion,Estudio,1.2
+2026-06-19,Neuro,Audicion,Práctica,1.2
+2026-06-21,Neuro,Audicion,Repaso,1.2
+2026-06-22,Filosofia,Filosofia Politica,Estudio,1.3
+2026-06-23,Filosofia,Filosofia Politica,Práctica,1.3
+2026-06-24,Filosofia,Filosofia Politica,Repaso,1.3
+2026-06-25,Algebra,Simplex,Estudio,1.2
+2026-06-26,Algebra,Simplex,Práctica,1.2
+2026-06-28,Algebra,Simplex,Repaso,1.2
+2026-06-29,Filosofia,Filosofia Moral,Estudio,1.0
+2026-06-29,Filosofia,Filosofia Moral,Repaso,1.0
+2026-06-30,Filosofia,Filosofia Moral,Práctica,1.0
+2026-06-30,Algebra,Tranformaciones Lineales,Estudio,1.4
+2026-07-01,Neuro,Sistema Motor,Estudio,1.0
+2026-07-01,Algebra,Tranformaciones Lineales,Repaso,1.4
+2026-07-02,Neuro,Sistema Motor,Práctica,1.0
+2026-07-03,Neuro,Sistema Motor,Repaso,1.0
