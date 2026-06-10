@@ -4,32 +4,27 @@ from datetime import datetime
 
 def pedir_fecha(mensaje):
     """
-    Solicita al usuario que ingrese una fecha por consola y la valida.
+    Solicita al usuario una fecha y verifica que tenga un formato válido.
 
-    Repite la solicitud hasta que el usuario ingrese una fecha con el
-    formato correcto (dd/mm/aaaa). Si el formato es inválido, muestra
-    un mensaje de error y vuelve a pedir la fecha.
-
-    Parameters
+    Parameters:
     ----------
     mensaje : str
-        Texto qeu se muestra cuando hay que pedir fecha, 
-        ya sea de inicio de estudio o de examen.
+        Mensaje que se mostrará al usuario antes de pedir la fecha.
 
-   Returns
-    -------
+    Returns:
+    ----------
     datetime.date
-        La fecha ingresada por el usuario como objeto ``datetime.date``.
-
+        Fecha ingresada por el usuario.
     """
     while True:
-        texto = input(mensaje + " (dd/mm/aaaa): ")
+        texto = input(mensaje + "(dd/mm/aaaa): ")
 
         try:
             return datetime.strptime(texto, "%d/%m/%Y").date()
+            # Convierte el texto ingresado a una fecha. --> "%d/%m/%Y" indica el formato día/mes/año.
 
         except ValueError:
-            print("Error: fecha inválida. Usá el formato dd/mm/aaaa.")
+            print("Error: fecha inválida.")
 
 
 def pedir_horas_dia(nombre_dia):

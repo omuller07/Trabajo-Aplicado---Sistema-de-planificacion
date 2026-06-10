@@ -156,8 +156,7 @@ def ver_calendario():
     crear_calendario_visual(plan, df_materias)
 
 
-
-
+#CODIGO PRINCIPAL
 while True:
     opcion = mostrar_menu()
 

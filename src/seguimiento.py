@@ -1,30 +1,6 @@
 import pandas as pd
 from datetime import datetime, date
-
-
-def pedir_fecha(mensaje):
-    """
-    Solicita al usuario una fecha y verifica que tenga un formato válido.
-
-    Parameters:
-    ----------
-    mensaje : str
-        Mensaje que se mostrará al usuario antes de pedir la fecha.
-
-    Returns:
-    ----------
-    datetime.date
-        Fecha ingresada por el usuario.
-    """
-    while True:
-        texto = input(mensaje + "(dd/mm/aaaa): ")
-
-        try:
-            return datetime.strptime(texto, "%d/%m/%Y").date()
-            # Convierte el texto ingresado a una fecha. --> "%d/%m/%Y" indica el formato día/mes/año.
-
-        except ValueError:
-            print("Error: fecha inválida.")
+from src.recoleccion_info import pedir_fecha
 
 
 def pedir_horas(mensaje):
