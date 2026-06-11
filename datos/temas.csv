@@ -1,9 +1,2 @@
 id_materia,tema,dificultad,conocimiento
-1,Simplex,5,2
-1,Tranformaciones Lineales,3,3
-2,Somatosensorial,7,2
-2,Sistema Motor,4,3
-2,Audicion,8,5
-3,Filosofia Politica,6,2
-3,Filosofia Moral,4,3
-3,Filosofia Practica,9,2
+1,TL,10,1

@@ -29,8 +29,12 @@ def convertir_plan_a_texto(plan, año, mes):
         if fecha.year == año and fecha.month == mes:
     
             textos = []
-    
-            for actividad in actividades:
+            
+            actividades_ordenadas = sorted(actividades, key=lambda actividad: actividad["actividad"] == "Repaso pre-examen")
+            #Hace que el dia de repaso aparezca ultimo
+
+
+            for actividad in actividades_ordenadas:
                 texto = (actividad["actividad"] + " | " + actividad["materia"] + " | "
                          + actividad["tema"] + " | " + str(actividad["horas"]) + " hs")
     

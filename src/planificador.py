@@ -264,10 +264,31 @@ def asignar_bloque_repartido(plan, fechas_posibles, carga_diaria, capacidad_diar
 
     return horas_pendientes
 
+def reservar_repasos_pre_examen(plan, carga_diaria, capacidad_diaria, df_materias):
+
+    for indice, materia in df_materias.iterrows():
+
+        fecha_repaso = materia["fecha_examen"] - timedelta(days=1)
+
+        if fecha_repaso in plan:
+
+            horas_repaso = 3
+
+            if capacidad_diaria[fecha_repaso] >= horas_repaso:
+
+                plan[fecha_repaso].append({
+                    "materia": materia["materia"],
+                    "tema": "Repaso general",
+                    "actividad": "Repaso pre-examen",
+                    "horas": horas_repaso})
+
+                carga_diaria[fecha_repaso] += horas_repaso
+
+            else:
+                print("No hay disponibilidad suficiente para repasar el día anterior al examen de", materia["materia"])
 
 def generar_plan(df_disponibilidad, df_materias, df_temas):
     '''
-    Genera un plan de estudio a partir de la disponibilidad del estudiante,
     las materias y los temas a estudiar.
 
     Parameters
@@ -302,7 +323,9 @@ def generar_plan(df_disponibilidad, df_materias, df_temas):
     # ordena el DataFrame temas_con_horas según la columna "prioridad" de mayor a menor
 
     plan, carga_diaria, capacidad_diaria = crear_estructura_plan(df_disponibilidad, df_materias)
-
+    
+    reservar_repasos_pre_examen(plan, carga_diaria,capacidad_diaria,df_materias) 
+    
     temas_no_asignados = []
 
     for indice, tema in temas_ordenados.iterrows():
