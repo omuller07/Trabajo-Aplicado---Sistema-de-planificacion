@@ -243,5 +243,5 @@ def crear_calendario_visual(plan, df_materias):
         plt.title(f"Planificador de estudio - {nombre_mes}/{año}", fontsize=30, fontweight="bold", 
                   pad=15, color="#1E3A5F")
 
-        plt.tight_layout()
+        plt.tight_layout() #mhace que atplotlib acomode automáticamente los márgenes de la figura.
         plt.show()
