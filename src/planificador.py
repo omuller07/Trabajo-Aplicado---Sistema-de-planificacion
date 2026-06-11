@@ -216,7 +216,7 @@ def asignar_bloque_repartido(plan, fechas_posibles, carga_diaria, capacidad_diar
 
     Parameters
     ----------
-    plan : diccio
+    plan : dict
         Diccionario que almacena las actividades asignadas a cada fecha.
     fechas_posibles : list
         Lista de fechas en las que puede programarse la actividad.
@@ -265,6 +265,25 @@ def asignar_bloque_repartido(plan, fechas_posibles, carga_diaria, capacidad_diar
     return horas_pendientes
 
 def reservar_repasos_pre_examen(plan, carga_diaria, capacidad_diaria, df_materias):
+    '''
+    Agrega antes de la fecha del examen un bloque obligatoria de repaso de 3 horas.
+
+    Parameters
+    ----------
+    plan : dict
+        Diccionario que almacena las actividades asignadas a cada fecha.
+    carga_diaria : dict
+        Diccionario que registra las horas de estudio ya asignadas a cada fecha.
+    capacidad_diaria : dict
+        Diccionario que indica la cantidad máxima de horas disponibles para estudiar en cada fecha.
+    df_materias : DataFrame
+        Contiene la informacion de las materias.
+
+    Returns
+    -------
+    None.
+
+    '''
 
     for indice, materia in df_materias.iterrows():
 
