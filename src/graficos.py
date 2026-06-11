@@ -31,12 +31,12 @@ def convertir_plan_a_texto(plan, año, mes):
             textos = []
     
             for actividad in actividades:
-                texto = (actividad["actividad"]+ "\n" + actividad["materia"] + "\n"
-                         + actividad["tema"] + "\n" + str(actividad["horas"]) + " hs")
+                texto = (actividad["actividad"] + " | " + actividad["materia"] + " | "
+                         + actividad["tema"] + " | " + str(actividad["horas"]) + " hs")
     
                 textos.append(texto)
     
-            plan_por_dia[fecha.day] = "\n\n".join(textos)
+            plan_por_dia[fecha.day] = "\n".join(textos)
                 # fecha.day --> obtiene el número del día del mes
                 # "\n\n".join(textos) --> une todas las actividades del día separándolas mediante dos saltos de línea.
     
@@ -119,7 +119,7 @@ def crear_calendario_visual(plan, df_materias):
         fig, ax = plt.subplots(figsize=(16, 10))
         # Crea una figura (fig) y ejes (ax). figsize indica tamaño de figura
 
-        fig.patch.set_facecolor("#FAFAFA")
+        fig.patch.set_facecolor("#F0F4F8")
         # .patch es el rectangulo que forma el fondo de la figura, facecolor cambia el color
 
         ax.axis("off")
@@ -140,7 +140,7 @@ def crear_calendario_visual(plan, df_materias):
 
                 else:
                     texto = str(dia)
-
+    
                     if dia in plan_por_dia:
                         texto += "\n\n" + plan_por_dia[dia]
 
@@ -164,10 +164,11 @@ def crear_calendario_visual(plan, df_materias):
 
         for col in range(7):
             cell = calendario[(0, col)]
-            cell.set_facecolor("#1565C0")
+            cell.set_facecolor("#455A64")
             cell.get_text().set_color("white")
             cell.get_text().set_weight("bold")
             cell.set_height(0.08)
+            cell.set_fontsize(10)
         # Modifica la fila de encabezados del calendario
 
         hoy = date.today()
@@ -180,7 +181,7 @@ def crear_calendario_visual(plan, df_materias):
             # get_text() = extrae el contenido de cada celda y lo convierte en un str
             # para poder elegir los colores según lo que dice
 
-            cell.set_edgecolor("#BDBDBD")
+            cell.set_edgecolor("#E0E0E0")
             # Color del borde
 
             cell.set_linewidth(1)
@@ -208,20 +209,24 @@ def crear_calendario_visual(plan, df_materias):
                 # Si la fecha de la celda ya pasó, la pinta gris
             
             elif "EXAMEN" in texto:
-                cell.set_facecolor("#FFCDD2")
+                cell.set_facecolor("#FFABAB")
                 cell.get_text().set_weight("bold")
+                cell.get_text().set_color("#7F0000")
                 # Si es un examen, pinta la celda de rojo claro y pone el texto en negrita
             
             elif "Repaso" in texto:
-                cell.set_facecolor("#C8E6C9")
+                cell.set_facecolor("#D1FAE5")
+                cell.get_text().set_color("#065F46")
                 # Si hay repaso, pinta la celda de verde claro
             
             elif "Práctica" in texto:
-                cell.set_facecolor("#FFF9C4")
+                cell.set_facecolor("#FEF3C7")
+                cell.get_text().set_color("#92400E")
                 # Si hay práctica, pinta la celda de amarillo claro
             
             elif "Estudio" in texto:
-                cell.set_facecolor("#BBDEFB")
+                cell.set_facecolor("#DBEAFE")
+                cell.get_text().set_color("#1E3A5F")
                 # Si hay estudio, pinta la celda de celeste claro
             
             else:
@@ -231,10 +236,8 @@ def crear_calendario_visual(plan, df_materias):
         # Recorre todas las celdas de la tabla y les cambia el color según el tipo de actividad o según si el día ya pasó
         meses = ["", "Enero", "Febrero", "Marzo", "Abril","Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
         nombre_mes = meses[mes]
-        plt.title( f"Planificador de estudio - {nombre_mes}/{año}",
-                  fontsize=20, 
-                  fontweight="bold", 
-                  pad=30)
+        plt.title(f"Planificador de estudio - {nombre_mes}/{año}", fontsize=30, fontweight="bold", 
+                  pad=15, color="#1E3A5F")
 
         plt.tight_layout()
         plt.show()

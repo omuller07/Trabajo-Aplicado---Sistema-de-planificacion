@@ -1,31 +1,26 @@
 from src.recoleccion_info import recolectar_informacion
 
-from src.verificacion import (
-    verificar_disponibilidad,
-    verificar_fechas_materias,
-    verificar_nombres_materias,
-    verificar_nombres_temas
-)
+from src.verificacion import (verificar_disponibilidad, 
+                              verificar_fechas_materias, 
+                              verificar_nombres_materias, 
+                              verificar_nombres_temas)
+                                
 
 from src.planificador import generar_plan
 
 from src.graficos import crear_calendario_visual
 
-from src.almacenamiento import (
-    guardar_datos_iniciales,
-    guardar_plan,
-    cargar_datos_iniciales,
-    cargar_plan,
-    cargar_progreso,
-    guardar_progreso,
-    plan_dataframe_a_diccionario
-)
+from src.almacenamiento import (guardar_datos_iniciales, 
+                                guardar_plan, 
+                                cargar_datos_iniciales, 
+                                cargar_plan, 
+                                cargar_progreso, 
+                                guardar_progreso,
+                                plan_dataframe_a_diccionario)
 
-from src.seguimiento import (
-    registrar_progreso_del_dia,
-    detectar_alertas,
-    reorganizar_plan_por_progreso
-)
+from src.seguimiento import (registrar_progreso_del_dia, 
+                             detectar_alertas, 
+                             reorganizar_plan_por_progreso)
 
 
 def mostrar_menu():
@@ -69,12 +64,10 @@ def generar_nuevo_plan():
         df_disponibilidad, df_materias, df_temas = recolectar_informacion()
         #desempaqueta los tres df que devuelve recolectar_informacion()
 
-        datos_validos = (
-            verificar_disponibilidad(df_disponibilidad)
-            and verificar_nombres_materias(df_materias)
-            and verificar_fechas_materias(df_materias)
-            and verificar_nombres_temas(df_temas)
-        )
+        datos_validos = (verificar_disponibilidad(df_disponibilidad) 
+                         and verificar_nombres_materias(df_materias) 
+                         and verificar_fechas_materias(df_materias) 
+                         and verificar_nombres_temas(df_temas))
     #pasa por todas las validaciones, si alguna falla, pide todo devuelta. 
 
         if datos_validos:
@@ -134,8 +127,7 @@ def registrar_progreso():
     df_plan_reorganizado = reorganizar_plan_por_progreso(
         df_plan,
         df_progreso,
-        df_disponibilidad
-    )
+        df_disponibilidad)
 
     guardar_plan(plan_dataframe_a_diccionario(df_plan_reorganizado))
 
@@ -164,8 +156,7 @@ def ver_calendario():
     crear_calendario_visual(plan, df_materias)
 
 
-
-
+#CODIGO PRINCIPAL
 while True:
     opcion = mostrar_menu()
 
