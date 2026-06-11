@@ -66,6 +66,8 @@ Elaboración de la presentación del proyecto y corrección de errores (verifica
 
 
 
+
+
 **Trabajo realizado en conjunto**
 
 
@@ -80,7 +82,7 @@ Integración de los distintos módulos mediante el archivo principal (main.py).
 
 ##### 
 
-##### Descripción de la fuente de datos
+##### **Descripción de la fuente de datos**
 
 
 
@@ -88,7 +90,7 @@ El sistema no utiliza fuentes de datos externas. Todos los datos son ingresados 
 
 
 
-##### Instrucciones para ejecutar el programa
+##### **Instrucciones para ejecutar el programa**
 
 
 
@@ -102,7 +104,7 @@ Ingresar progreso.
 
 
 
-##### Librerías utilizadas
+##### **Librerías utilizadas**
 
 
 
@@ -118,7 +120,7 @@ matplotlib: visualización gráfica del calendario de estudio.
 
 
 
-##### Estructura del repositorio
+##### **Estructura del repositorio**
 
 
 
@@ -150,11 +152,55 @@ Trabajo-Aplicado/
 
 
 
-9\. Explicación breve de las funciones principales.
+##### Explicación breve de las funciones principales
 
 
 
-Resultados, salidas, métricas y funcionalidades generadas
+**recolectar\_informacion()**
+
+&#x09;Solicita al usuario la información necesaria para generar el plan de estudio.
+
+
+
+**generar\_plan()**
+
+&#x09;Calcula las prioridades de los temas, estima las horas necesarias y distribuye las actividades en función de la disponibilidad del usuario.
+
+
+
+**crear\_calendario\_visual()**
+
+&#x09;Genera un calendario gráfico que muestra las actividades de estudio y las fechas de examen.
+
+
+
+**guardar\_plan()**
+
+&#x09;Almacena el plan generado en archivos CSV para permitir su reutilización posterior.
+
+
+
+**registrar\_progreso\_del\_dia()**
+
+&#x09;Permite al usuario registrar el avance realizado en una fecha determinada.
+
+
+
+**detectar\_alertas()**
+
+&#x09;Analiza el progreso registrado y detecta posibles situaciones de procrastinación o sobreexigencia.
+
+
+
+**reorganizar\_plan\_por\_progreso(**)
+
+&#x09;Redistribuye horas pendientes en fechas futuras cuando el usuario no cumple completamente el plan original.
+
+
+
+
+
+##### **Resultados, salidas, métricas y funcionalidades generadas**
 
 
 
@@ -180,5 +226,5 @@ Archivos CSV para almacenar la información del usuario y el progreso realizado.
 
 
 
-11\. Diagramas de diseño. 12. Declaración de uso de IA. 13. Notas o explicaciones adicionales para correr correctamente el programa.
+##### **Declaración de uso de IA**
 
