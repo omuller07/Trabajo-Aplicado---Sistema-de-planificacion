@@ -163,7 +163,7 @@ def crear_calendario_visual(plan, df_materias):
 
         calendario.set_fontsize(6) # No pone font size default, pone 6
 
-        # Cambia el tamaño de las celdas de la tabla: ensancha las columnas y hace filas más altas
+        #Define el tamaño de las celdas de la tabla: ensancha las columnas y hace filas más altas
         calendario.scale(1.3, 7)
 
         for col in range(7):
@@ -243,5 +243,5 @@ def crear_calendario_visual(plan, df_materias):
         plt.title(f"Planificador de estudio - {nombre_mes}/{año}", fontsize=30, fontweight="bold", 
                   pad=15, color="#1E3A5F")
 
-        plt.tight_layout() #mhace que atplotlib acomode automáticamente los márgenes de la figura.
+        plt.tight_layout() #hace que matplotlib acomode automáticamente los márgenes de la figura.
         plt.show()

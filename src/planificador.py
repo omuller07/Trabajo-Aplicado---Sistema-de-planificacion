@@ -127,10 +127,9 @@ def calcular_prioridades(df_materias, df_temas):
 
         urgencia = calcular_urgencia(dias_restantes)
 
-        prioridad = (
-            2 * fila["dificultad"]
-            + (6 - fila["conocimiento"])
-            + urgencia)
+        prioridad = ( 2 * fila["dificultad"] 
+                     + (6 - fila["conocimiento"])
+                     + urgencia)
         
         prioridades.append(prioridad)
 
