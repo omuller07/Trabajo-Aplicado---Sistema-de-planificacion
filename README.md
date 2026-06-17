@@ -12,7 +12,7 @@ Lola Fanti, Clara Henestrosa, Ela Iturriaga, Olivia Muller.
 
 
 
-#### Objetivo:
+### Objetivo:
 
 
 
@@ -34,7 +34,7 @@ El plan generado se almacena en archivos CSV para que pueda ser recuperado poste
 
 
 
-#### **Distribución de tareas entre los integrantes**
+### **Distribución de tareas entre los integrantes**
 
 
 
@@ -42,7 +42,7 @@ Para organizar el desarrollo del proyecto, decidimos dividir las tareas en grupo
 
 
 
-**Lola**
+#### **Lola**
 
 Desarrollo del módulo de recolección de información (recoleccion\_info.py).
 
@@ -54,7 +54,7 @@ Descripción en el README.
 
 
 
-**Ela**
+#### **Ela**
 
 Desarrollo del módulo gráfico (graficos.py).
 
@@ -66,9 +66,9 @@ Descripción en el README.
 
 Creación de docstrings de main y recolección info.
 
+#### 
 
-
-**Olivia**
+#### **Olivia**
 
 Desarrollo del módulo gráfico (graficos.py).
 
@@ -82,7 +82,7 @@ Creacion de docstring de los modulos planificador y verificacion.
 
 
 
-**Clara**
+#### **Clara**
 
 Corrección de errores (verificación.py).
 
@@ -96,7 +96,7 @@ Creacion de docstring de los modulos graficos, seguimientos y almacenamiento.
 
 
 
-#### **Trabajo realizado en conjunto**
+### **Trabajo realizado en conjunto**
 
 
 
@@ -110,7 +110,7 @@ Arreglos y perfeccionamiento de los distintos archivos y funciones.
 
 ##### 
 
-#### **Descripción de la fuente de datos**
+### **Descripción de la fuente de datos**
 
 
 
@@ -120,7 +120,7 @@ El sistema no utiliza fuentes de datos externas. Todos los datos son ingresados 
 
 
 
-#### **Instrucciones para ejecutar el programa**
+### **Instrucciones para ejecutar el programa**
 
 
 
@@ -136,7 +136,7 @@ Opcional: Ingresar progreso.
 
 
 
-#### **Librerías utilizadas**
+### **Librerías utilizadas**
 
 
 
@@ -154,7 +154,7 @@ matplotlib: visualización gráfica del calendario de estudio.
 
 
 
-#### **Estructura del repositorio**
+### **Estructura del repositorio**
 
 
 
@@ -186,7 +186,7 @@ Trabajo-Aplicado---Sistema-de-planificación/
 
 
 
-##### Explicación breve de las funciones principales
+### Explicación breve de las funciones principales
 
 
 
@@ -234,9 +234,9 @@ Trabajo-Aplicado---Sistema-de-planificación/
 
 
 
+### 
 
-
-##### **Resultados, salidas, métricas y funcionalidades generadas**
+### **Resultados, salidas, métricas y funcionalidades generadas**
 
 
 
@@ -258,9 +258,9 @@ Archivos CSV para almacenar la información del usuario y el progreso realizado.
 
 
 
+### 
 
-
-##### **Declaración de uso de IA**
+### **Declaración de uso de IA**
 
 
 
