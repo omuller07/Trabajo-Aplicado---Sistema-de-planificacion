@@ -10,7 +10,9 @@ Lola Fanti, Clara Henestrosa, Ela Iturriaga, Olivia Muller.
 
 
 
-##### Objetivo:
+
+
+#### Objetivo:
 
 
 
@@ -30,7 +32,13 @@ El plan generado se almacena en archivos CSV para que pueda ser recuperado poste
 
 
 
-##### **Distribución de tareas entre los integrantes**
+
+
+#### **Distribución de tareas entre los integrantes**
+
+
+
+Para organizar el desarrollo del proyecto, decidimos dividir las tareas en grupos de a dos, ya que nos pareció la forma más eficiente de avanzar con las distintas partes del sistema. Sin embargo, a medida que fuimos perfeccionando el programa, todas participamos en la revisión, corrección y mejora de las distintas funciones. Por este motivo, los commits del repositorio no reflejan de manera completamente exacta la división inicial de tareas, ya que en varias ocasiones trabajamos de a parejas en una misma computadora o realizamos modificaciones conjuntas sobre partes del código que originalmente habían sido asignadas a otro grupo. De esta manera, aunque hubo una organización inicial por áreas, el trabajo final fue revisado y mejorado de forma colaborativa por todas las integrantes.
 
 
 
@@ -38,37 +46,57 @@ El plan generado se almacena en archivos CSV para que pueda ser recuperado poste
 
 Desarrollo del módulo de recolección de información (recoleccion\_info.py).
 
-Diagramas de flujo del código general y función registrar\_progreso(), y participación en el testing.
+Desarrollo del módulo de planificación (planificador.py).
+
+Diagramas de flujo del código general y función registrar\_progreso(), generar\_nuevo\_plan() y participación en el testing.
+
+Descripción en el README.
 
 
 
 **Ela**
 
-Desarrollo del módulo de planificación (planificador.py).
+Desarrollo del módulo gráfico (graficos.py).
 
-Diagrama de flujo de las funciones: generar\_nuevo\_plan() y ver\_calendario(), y participación en el testing
+Desarrollo del módulo de almacenamiento (almacenamiento.py).
+
+Diagrama de flujo de las funciones: ver\_calendario(), y participación en el testing.
+
+Descripción en el README.
+
+Creación de docstrings de main y recolección info.
 
 
 
 **Olivia**
 
-Desarrollo del módulo de almacenamiento (almacenamiento.py).
+Desarrollo del módulo gráfico (graficos.py).
 
-Elaboración de la presentación del proyecto y corrección de errores (verificación.py).
+Desarrollo del módulo de seguimiento (seguimiento.py).
+
+Elaboración de la presentación del proyecto.
+
+Creacion de docstring de los modulos planificador y verificacion.
+
+
 
 
 
 **Clara**
 
-Desarrollo del módulo gráfico (graficos.py).
+Corrección de errores (verificación.py).
 
-Elaboración de la presentación del proyecto y corrección de errores (verificación.py).
+Desarrollo del módulo de planificación (planificador.py).
+
+Elaboración de la presentación del proyecto.
+
+Creacion de docstring de los modulos graficos, seguimientos y almacenamiento.
 
 
 
 
 
-**Trabajo realizado en conjunto**
+#### **Trabajo realizado en conjunto**
 
 
 
@@ -76,13 +104,13 @@ Diseño general del sistema.
 
 Elaboración del documento de diseño a partir de las ideas y aportes de todas las integrantes.
 
-Desarrollo del módulo de seguimiento (seguimiento.py).
-
 Integración de los distintos módulos mediante el archivo principal (main.py).
+
+Arreglos y perfeccionamiento de los distintos archivos y funciones. 
 
 ##### 
 
-##### **Descripción de la fuente de datos**
+#### **Descripción de la fuente de datos**
 
 
 
@@ -90,7 +118,9 @@ El sistema no utiliza fuentes de datos externas. Todos los datos son ingresados 
 
 
 
-##### **Instrucciones para ejecutar el programa**
+
+
+#### **Instrucciones para ejecutar el programa**
 
 
 
@@ -100,11 +130,13 @@ Seleccionar la opción deseada desde el menú principal.
 
 Completar la información solicitada por el sistema.
 
-Ingresar progreso.
+Opcional: Ingresar progreso.
 
 
 
-##### **Librerías utilizadas**
+
+
+#### **Librerías utilizadas**
 
 
 
@@ -120,35 +152,37 @@ matplotlib: visualización gráfica del calendario de estudio.
 
 
 
-##### **Estructura del repositorio**
+
+
+#### **Estructura del repositorio**
 
 
 
-Trabajo-Aplicado/
-
-│
-
-├── main.py
-
-│
+Trabajo-Aplicado---Sistema-de-planificación/
 
 ├── datos/
 
-│
+├── docs/
 
-└── src/
+├── src/
 
-&#x20;   ├── recoleccion\_info.py
+│   ├── almacenamiento.py
 
-&#x20;   ├── verificacion.py
+│   ├── graficos.py
 
-&#x20;   ├── planificador.py
+│   ├── planificador.py
 
-&#x20;   ├── almacenamiento.py
+│   ├── recoleccion\_info.py
 
-&#x20;   ├── seguimiento.py
+│   ├── seguimiento.py
 
-&#x20;   └── graficos.py
+│   └── verificacion.py
+
+├── main.py
+
+└── README.md
+
+
 
 
 
@@ -200,6 +234,8 @@ Trabajo-Aplicado/
 
 
 
+
+
 ##### **Resultados, salidas, métricas y funcionalidades generadas**
 
 
@@ -211,8 +247,6 @@ El sistema genera:
 Un plan de estudio personalizado.
 
 Un calendario visual mensual con las actividades programadas.
-
-Un resumen de prioridades de los temas.
 
 Alertas de procrastinación.
 
@@ -227,4 +261,10 @@ Archivos CSV para almacenar la información del usuario y el progreso realizado.
 
 
 ##### **Declaración de uso de IA**
+
+
+
+Durante el desarrollo del proyecto utilizamos herramientas de inteligencia artificial como apoyo complementario en distintas etapas del trabajo. En primer lugar, nos ayudó en la lluvia de ideas inicial, para pensar posibles enfoques del sistema y organizar mejor los objetivos del proyecto. También la utilizamos para ordenar nuestras ideas al momento de redactar los párrafos del documento de diseño y del README. En relación con el código, la IA nos sirvió para obtener una idea general sobre cómo estructurar algunas funciones, que luego fueron revisadas, modificadas y perfeccionadas por nosotras según las necesidades específicas del programa. Además, la usamos para conocer librerías útiles para la creación del calendario, resolver dudas puntuales, corregir errores y pensar posibles soluciones cuando alguna parte del código no funcionaba correctamente. De todos modos, las decisiones finales, la adaptación del código y la integración del sistema fueron realizadas por el grupo.
+
+
 
