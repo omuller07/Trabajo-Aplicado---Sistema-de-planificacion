@@ -69,6 +69,7 @@ def generar_nuevo_plan():
                          and verificar_fechas_materias(df_materias) 
                          and verificar_nombres_temas(df_temas))
     #pasa por todas las validaciones, si alguna falla, pide todo devuelta. 
+    #Cada función devuelve True o False. todas tienen que dar True
 
         if datos_validos:
             break
@@ -156,7 +157,7 @@ def ver_calendario():
     crear_calendario_visual(plan, df_materias)
 
 
-#CODIGO PRINCIPAL
+
 while True:
     opcion = mostrar_menu()
 

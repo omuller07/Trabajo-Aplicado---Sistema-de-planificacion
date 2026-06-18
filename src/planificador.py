@@ -49,7 +49,7 @@ def calcular_urgencia(dias_restantes):
 
 def obtener_nombre_dia(fecha):
     '''
-    
+    Te dice que dia de la semana es la fecha que se ingresa
 
     Parameters
     ----------
@@ -133,7 +133,7 @@ def calcular_prioridades(df_materias, df_temas):
         
         prioridades.append(prioridad)
 
-    df["prioridad"] = prioridades
+    df["prioridad"] = prioridades #Agrega esa lista como una nueva columna del DataFrame.
 
     return df
 
@@ -170,7 +170,8 @@ def crear_estructura_plan(df_disponibilidad, df_materias):
     Crea un diccionario para almacenar las actividades asignadas a cada
     fecha, otro para registrar la carga de estudio diaria y otro para
     guardar la capacidad disponible de cada día según la disponibilidad
-    del estudiante.
+    del estudiante. Es el esqueleto del calendario: crea cada fecha disponible,
+    pone la carga inicial en 0 y busca cuántas horas máximo se pueden estudiar ese día.
 
     Parameters
     ----------
@@ -189,9 +190,9 @@ def crear_estructura_plan(df_disponibilidad, df_materias):
         Indica la cantidad de horas disponibles para estudiar en cada fecha.
 
     '''
-    plan = {}
-    carga_diaria = {}
-    capacidad_diaria = {}
+    plan = {} #va a guardar los temas asignados a cada fecha
+    carga_diaria = {} #guarda cuántas horas ya fueron asignadas a esa fecha
+    capacidad_diaria = {} #guarda cuántas horas máximo podés estudiar ese día
 
     for indice, materia in df_materias.iterrows():
         fechas = crear_rango_fechas(
@@ -286,21 +287,21 @@ def reservar_repasos_pre_examen(plan, carga_diaria, capacidad_diaria, df_materia
 
     for indice, materia in df_materias.iterrows():
 
-        fecha_repaso = materia["fecha_examen"] - timedelta(days=1)
+        fecha_repaso = materia["fecha_examen"] - timedelta(days=1) #Calcula el día anterior al examen.
 
         if fecha_repaso in plan:
 
             horas_repaso = 3
 
-            if capacidad_diaria[fecha_repaso] >= horas_repaso:
-
+            if carga_diaria[fecha_repaso] + horas_repaso <= capacidad_diaria[fecha_repaso]:
+                #Acá revisa si ese día hay al menos 3 horas disponibles.
                 plan[fecha_repaso].append({
                     "materia": materia["materia"],
                     "tema": "Repaso general",
                     "actividad": "Repaso pre-examen",
                     "horas": horas_repaso})
 
-                carga_diaria[fecha_repaso] += horas_repaso
+                carga_diaria[fecha_repaso] += horas_repaso #Actualiza la cantidad de horas ocupadas ese día.
 
             else:
                 print("No hay disponibilidad suficiente para repasar el día anterior al examen de", materia["materia"])
@@ -353,9 +354,10 @@ def generar_plan(df_disponibilidad, df_materias, df_temas):
         horas_necesarias = tema["horas_necesarias"]
 
         cantidad_bloques = math.ceil(horas_necesarias / 1.5) #redondea para arriba. ej 2,66 --> 3.
+        # Divide porque está calculando cuántos bloques de estudio de máximo 1,5 horas necesita para cubrir todas las horas necesarias de un tema.
 
         horas_por_bloque = round(horas_necesarias / cantidad_bloques,1 ) #the lo redondea un decimal. 3,66 -->3,6
-
+        #cuantas horas quedaron por bloque, ej 3 bloques de 1.3 horas
         for bloque in range(cantidad_bloques):
 
             if bloque == 0:
