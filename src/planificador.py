@@ -287,24 +287,32 @@ def reservar_repasos_pre_examen(plan, carga_diaria, capacidad_diaria, df_materia
 
     for indice, materia in df_materias.iterrows():
 
-        fecha_repaso = materia["fecha_examen"] - timedelta(days=1) #Calcula el día anterior al examen.
+        fecha_repaso = materia["fecha_examen"] - timedelta(days=1)
 
         if fecha_repaso in plan:
 
-            horas_repaso = 3
+            horas_disponibles_dia = capacidad_diaria[fecha_repaso]
 
-            if carga_diaria[fecha_repaso] + horas_repaso <= capacidad_diaria[fecha_repaso]:
-                #Acá revisa si ese día hay al menos 3 horas disponibles.
+            if horas_disponibles_dia >= 3:
+                horas_repaso = 3
+            else:
+                horas_repaso = horas_disponibles_dia
+
+            if horas_repaso > 0:
                 plan[fecha_repaso].append({
                     "materia": materia["materia"],
                     "tema": "Repaso general",
                     "actividad": "Repaso pre-examen",
-                    "horas": horas_repaso})
+                    "horas": round(horas_repaso, 1)
+                })
 
-                carga_diaria[fecha_repaso] += horas_repaso #Actualiza la cantidad de horas ocupadas ese día.
+                carga_diaria[fecha_repaso] += horas_repaso
 
             else:
-                print("No hay disponibilidad suficiente para repasar el día anterior al examen de", materia["materia"])
+                print(
+                    "No hay disponibilidad para repasar el día anterior al examen de",
+                    materia["materia"]
+                )
 
 def generar_plan(df_disponibilidad, df_materias, df_temas):
     '''
