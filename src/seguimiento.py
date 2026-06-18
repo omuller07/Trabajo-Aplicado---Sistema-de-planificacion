@@ -1,5 +1,4 @@
 import pandas as pd
-from datetime import datetime, date
 from src.recoleccion_info import pedir_fecha
 
 
