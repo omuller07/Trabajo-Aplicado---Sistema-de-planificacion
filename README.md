@@ -106,7 +106,7 @@ Elaboración del documento de diseño a partir de las ideas y aportes de todas l
 
 Integración de los distintos módulos mediante el archivo principal (main.py).
 
-Arreglos y perfeccionamiento de los distintos archivos y funciones. 
+Arreglos y perfeccionamiento de los distintos archivos y funciones.
 
 ##### 
 
@@ -186,7 +186,7 @@ Trabajo-Aplicado---Sistema-de-planificación/
 
 
 
-### Explicación breve de las funciones principales
+### **Explicación breve de las funciones principales**
 
 
 
@@ -266,5 +266,31 @@ Archivos CSV para almacenar la información del usuario y el progreso realizado.
 
 Durante el desarrollo del proyecto utilizamos herramientas de inteligencia artificial como apoyo complementario en distintas etapas del trabajo. En primer lugar, nos ayudó en la lluvia de ideas inicial, para pensar posibles enfoques del sistema y organizar mejor los objetivos del proyecto. También la utilizamos para ordenar nuestras ideas al momento de redactar los párrafos del documento de diseño y del README. En relación con el código, la IA nos sirvió para obtener una idea general sobre cómo estructurar algunas funciones, que luego fueron revisadas, modificadas y perfeccionadas por nosotras según las necesidades específicas del programa. Además, la usamos para conocer librerías útiles para la creación del calendario, resolver dudas puntuales, corregir errores y pensar posibles soluciones cuando alguna parte del código no funcionaba correctamente. De todos modos, las decisiones finales, la adaptación del código y la integración del sistema fueron realizadas por el grupo.
 
+#### 
 
+#### **Algunos prompts utilizados:** 
+
+
+
+* "¿Cómo se asignan los temas a cada día? es una pregunta que no se como responder, bajo que criterios decís que se asignan los temas"
+
+
+
+* "Necesitamos implementar un calendario visual para un planificador de estudio desarrollado en Python. El calendario debe permitir mostrar actividades de estudio dentro de cada día del mes, indicar fechas de examen y diferenciar visualmente distintos tipos de actividades mediante colores. ¿Qué librería recomendás utilizar para esto?"
+
+
+
+* "Con todo esto que hablamos y el documento con la información brindada del trabajo y las librerías pandas, calendar, matplotlib, e imagiando que sos un programador experto, que funciones podrían ser útiles para la creación del calendario visual, utilizando data frames con la información brindada por el usuario."
+
+
+
+* "Necesito que en el archivo de grafico, hagas que el texto de cada tarea este en un linea en vez de uno arriba del otro, ya que esto genera problemas visuales si hay demasiadas tareas. NO CAMBIES NADA MAS."
+
+
+
+* "En nuestro proyecto de planificación de estudio estamos almacenando la disponibilidad, las materias y los temas utilizando varios diccionarios y DataFrames. Sin embargo, la disponibilidad semanal es la misma para todas las materias y cada materia agrupa temas que comparten la misma fecha de examen. ¿La estructura actual está generando información redundante? ¿Se podría simplificar el modelo de datos para evitar almacenar información repetida y mantener una organización más eficiente y fácil de mantener? Proponé una alternativa y explicá qué cambios habría que realizar en los módulos del sistema."
+
+
+
+* "¿Encontrás algún error en este código?"
 
