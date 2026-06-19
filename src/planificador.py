@@ -302,7 +302,7 @@ def reservar_repasos_pre_examen(plan, carga_diaria, capacidad_diaria, df_materia
                 plan[fecha_repaso].append({
                     "materia": materia["materia"],
                     "tema": "Repaso general",
-                    "actividad": "Repaso pre-examen",
+                    "actividad": "pre-examen",
                     "horas": round(horas_repaso, 1)
                 })
 

@@ -238,7 +238,7 @@ def reorganizar_plan_por_progreso(df_plan, df_progreso, df_disponibilidad):
                 "fecha": fecha,
                 "materia": "Reorganización",
                 "tema": "Horas pendientes",
-                "actividad": "Reorganizado",
+                "actividad": "",
                 "horas": round(horas_asignadas, 1)})
 
             horas_pendientes -= horas_asignadas
