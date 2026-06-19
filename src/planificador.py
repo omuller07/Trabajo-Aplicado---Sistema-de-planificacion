@@ -155,10 +155,7 @@ def calcular_horas_necesarias(df):
     '''
     df = df.copy()
 
-    df["horas_necesarias"] = (
-        1
-        + df["dificultad"] * 0.3
-        + (6 - df["conocimiento"]) * 0.3)
+    df["horas_necesarias"] = (1  + df["dificultad"] * 0.3  + (6 - df["conocimiento"]) * 0.3)
 
     df["horas_necesarias"] = df["horas_necesarias"].round(1) #redondeá a 1 decimal. ej 3,56 --> 3,6
 
