@@ -122,7 +122,15 @@ El sistema no utiliza fuentes de datos externas. Todos los datos son ingresados 
 
 ### **Instrucciones para ejecutar el programa**
 
+Antes de ejecutar main hay que instalar librerías: panda y matplotlib, presentes en el archivo requierments.txt
 
+El comando para instalarlas es: 
+
+	pip install -r requirements.txt
+	python main.py
+
+Las otras librerías utilizadas, estan ya presentes en python.
+ 
 
 Ejecutar el archivo main.py.
 
@@ -131,6 +139,7 @@ Seleccionar la opción deseada desde el menú principal.
 Completar la información solicitada por el sistema.
 
 Opcional: Ingresar progreso.
+
 
 
 
