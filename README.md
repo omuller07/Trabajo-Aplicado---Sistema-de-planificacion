@@ -191,6 +191,8 @@ Trabajo-Aplicado---Sistema-de-planificación/
 
 └── README.md
 
+└── requierments.txt
+
 
 
 
