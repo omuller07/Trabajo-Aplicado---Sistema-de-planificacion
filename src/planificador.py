@@ -238,9 +238,20 @@ def asignar_bloque_repartido(plan, fechas_posibles, carga_diaria, capacidad_diar
     '''
     horas_pendientes = horas_bloque
 
-    fechas_ordenadas = sorted(
-        fechas_posibles,
-        key=lambda fecha: carga_diaria[fecha])
+    fechas_con_carga = []
+
+    for fecha in fechas_posibles:
+        fechas_con_carga.append((carga_diaria[fecha], fecha)) #guarda una tupla con dos datos:
+
+    fechas_con_carga.sort() 
+    #ordena la lista. Como cada elemento empieza con un número, ordena primero por ese número.
+
+    fechas_ordenadas = []
+
+    for carga, fecha in fechas_con_carga:
+        fechas_ordenadas.append(fecha) 
+        
+    #saca solo las fechas, sin la carga.
 
     for fecha in fechas_ordenadas:
         espacio_disponible = capacidad_diaria[fecha] - carga_diaria[fecha]

@@ -30,8 +30,10 @@ def convertir_plan_a_texto(plan, año, mes):
     
             textos = []
             
-            actividades_ordenadas = sorted(actividades, key=lambda actividad: actividad["actividad"] == "Repaso pre-examen")
-            #Hace que el dia de repaso aparezca ultimo
+            def es_repaso_preexamen(actividad):
+                return actividad["actividad"] == "Repaso pre-examen"
+
+            actividades_ordenadas = sorted(actividades, key=es_repaso_preexamen)
 
 
             for actividad in actividades_ordenadas:
