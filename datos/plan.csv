@@ -1,19 +1,18 @@
 fecha,materia,tema,actividad,horas
-2026-07-01,Algebra,Lógica,Estudio,1.2
-2026-07-01,Algebra,simplex,Práctica,1.3
-2026-07-02,Algebra,Lógica,Práctica,1.2
-2026-07-02,Algebra,simplex,Repaso,0.8
-2026-07-03,Algebra,Lógica,Práctica,1.2
-2026-07-03,Algebra,simplex,Repaso,0.5
-2026-07-04,Algebra,Lógica,Repaso,1.2
-2026-07-06,Algebra,simplex,Estudio,1.3
-2026-07-07,Algebra,Repaso general,Repaso pre-examen,3.0
-2026-07-09,neuro,Sistema motor,Estudio,1.2
-2026-07-10,neuro,Sistema motor,Práctica,1.2
-2026-07-11,neuro,Sistema motor,Repaso,1.2
-2026-07-13,neuro,Sistema visual,Estudio,1.1
-2026-07-13,neuro,Sistema auditivo,Práctica,1.1
-2026-07-14,neuro,Sistema visual,Práctica,1.1
-2026-07-14,neuro,Sistema auditivo,Repaso,1.1
-2026-07-15,neuro,Sistema visual,Repaso,1.1
-2026-07-16,neuro,Sistema auditivo,Estudio,1.1
+2026-07-01,Algebra,Lógica,Estudio,1.4
+2026-07-02,Algebra,Lógica,Práctica,1.4
+2026-07-03,Algebra,Lógica,Repaso,1.4
+2026-07-05,Algebra,Simplex,Estudio,1.2
+2026-07-05,Algebra,Simplex,Repaso,1.2
+2026-07-06,Algebra,Simplex,Práctica,1.2
+2026-07-07,Algebra,Repaso general,pre-examen,3.0
+2026-07-08,Neuro,Sistema auditivo ,Estudio,1.3
+2026-07-09,Neuro,Sistema auditivo ,Práctica,1.3
+2026-07-10,Neuro,Sistema auditivo ,Repaso,1.3
+2026-07-12,Neuro,Sistema visual,Estudio,1.1
+2026-07-12,Neuro,plasticidad sináptica ,Repaso,1.0
+2026-07-13,Neuro,Sistema visual,Práctica,1.1
+2026-07-14,Neuro,Sistema visual,Repaso,1.1
+2026-07-15,Neuro,plasticidad sináptica ,Estudio,1.0
+2026-07-15,Neuro,plasticidad sináptica ,Práctica,1.0
+2026-07-16,Neuro,Repaso general,pre-examen,2.0
